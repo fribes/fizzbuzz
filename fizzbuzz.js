@@ -1,5 +1,7 @@
 'use strict';
 
+const { isMultOf3, isMultOf3and5, isMultOf5 } = require('./multipleOf');
+
 if (require.main === module) {
   console.log(fizzbuzz(100));
 }
@@ -7,33 +9,21 @@ if (require.main === module) {
 function fizzbuzz(max) {
   const result = []
   for (let i=1; i<=max; i++) {
-    if (isMultOf3and5(i))
-      result.push('fizzbuzz');
-    else if (isMultOf3(i))
-      result.push('fizz');
-    else if (isMultOf5(i))
-      result.push('buzz');
-    else
-      result.push(`${i}`)
+    result.push(answer(i))
   }
   return result;
 }
 
-function isMultOf3 (number) {
-  return number%3 === 0
-}
-
-function isMultOf5 (number) {
-  return number%5 === 0
-}
-
-function isMultOf3and5 (number) {
-  return number%15 === 0
+function answer(i) {
+  if (isMultOf3and5(i))
+    return 'fizzbuzz';
+  if (isMultOf3(i))
+    return 'fizz' ;
+  if (isMultOf5(i))
+    return 'buzz';
+  return `${i}`
 }
 
 module.exports = {
-  isMultOf3,
-  isMultOf5,
-  isMultOf3and5,
   fizzbuzz
 }
