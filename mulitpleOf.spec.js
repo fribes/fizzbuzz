@@ -1,4 +1,5 @@
 'use strict';
+
 const { isMultOf3, isMultOf5, isMultOf3and5 } = require('./multipleOf');
 
 describe('isMultOf3', () => {
